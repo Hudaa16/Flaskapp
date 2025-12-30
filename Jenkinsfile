@@ -4,7 +4,7 @@ pipeline {
         stage('Clone Repository') { 
             steps { 
                 echo 'Cloning repository...' 
-                git branch: 'main', url: 'https://github.com/YOUR_USERNAME/Flaskapp.git' 
+                git branch: 'main', url: 'https://github.com/Hudaa16/Flaskapp.git' 
             } 
         } 
         stage('Install Dependencies') { 
