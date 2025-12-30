@@ -1,0 +1,35 @@
+pipeline { 
+    agent any 
+    stages { 
+        stage('Clone Repository') { 
+            steps { 
+                echo 'Cloning repository...' 
+                git branch: 'main', url: 'https://github.com/YOUR_USERNAME/Flaskapp.git' 
+            } 
+        } 
+        stage('Install Dependencies') { 
+            steps { 
+                echo 'Installing Python dependencies...' 
+                bat 'pip install -r requirements.txt' 
+            } 
+        } 
+        stage('Run Tests') { 
+            steps { 
+                echo 'Running unit tests...' 
+                bat 'pytest tests/' 
+            } 
+        } 
+        stage('Build') { 
+            steps { 
+                echo 'Building application...' 
+                bat 'echo "Build completed"' 
+            } 
+        } 
+        stage('Deploy') { 
+            steps { 
+                echo 'Simulating deployment...' 
+                bat 'mkdir C:\flask-deploy' 
+            } 
+        } 
+    } 
+} 
